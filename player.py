@@ -4,9 +4,10 @@
 
 # collaborates with Dealer, Cards, Hand
 
-import random
+# import random
+from deck import deal_one
 
-fake_cards = [2, 3, 4, 5, 6, 10]
+# fake_cards = [2, 3, 4, 5, 6, 10]
 
 class Player:
 
@@ -15,7 +16,8 @@ class Player:
 
     def get_card(self):
         # needs to be a random selection of remaining cards in the deck
-        self.hand += (random.choice(fake_cards))
+        self.hand +=
+        # self.hand += (random.choice(fake_cards))
         return self.hand
 
 

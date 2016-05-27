@@ -36,18 +36,3 @@ class Hand:
             print("Dealer's hand: ", self.dealer.hand)
         dealer_total = self.dealer.hand
         return dealer_total
-
-
-    '''
-    def play_again(self):
-        play_on = input("Another hand? Y/n ").lower()
-        if play_on == 'y':
-            launch_game()
-        else:
-            # report who_won
-            sys.exit()
-    '''
-
-# new_round = Hand()
-# new_round.players_hand()
-# new_round.dealers_hand()
