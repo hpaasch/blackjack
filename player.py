@@ -4,34 +4,20 @@
 
 # collaborates with Dealer, Cards, Hand
 
+import random
+
+fake_cards = [2, 3, 4, 5, 6, 10]
+
 class Player:
 
     def __init__(self):
-        self.hand = 0
+        self.hand = 10
 
     def get_card(self):
         # needs to be a random selection of remaining cards in the deck
-        self.hand += 2  # randomly select from a deck
-'''
-hep_player = Player()
-joe_dealer = Player()
+        self.hand += (random.choice(fake_cards))
+        return self.hand
 
-
-
-while hep_player.hand <= 21:
-    hit = input("Another card? Y/n").lower()
-    if hit == 'y':
-        hep_player.get_card()
-    else:
-        break
-
-while joe_dealer.hand < 17:
-    joe_dealer.get_card()
-
-
-print("Hope's hand: ", hep_player.hand)
-print("Dealer's hand: ", joe_dealer.hand)
-'''
 
 
 
