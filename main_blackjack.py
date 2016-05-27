@@ -2,25 +2,25 @@ from hand import Hand
 import sys
 
 
-#class PlayTheGame():
+class PlayTheGame():
 
-def launch_game():
-    new_round = Hand()
-    new_round.players_hand()
-    new_round.dealers_hand()
-    # new_round.play_again()
+    def __init__(self):
+        print("Time to play some blackjack.")
+        self.launch_game()
+        self.play_again()
 
-# '''
+    def launch_game(self):
+        new_round = Hand()
+        new_round.players_hand()
+        new_round.dealers_hand()
 
+    def play_again(self):
+        while True:
+            play_on = input("Want to play another hand? Y/n ").lower()
+            if play_on == 'y':
+                self.launch_game()
+            else:
+                sys.exit()
 
-def play_again():
-    play_on = input("Want to play another hand? Y/n ").lower()
-    while True:  # this needs a WHILE loop or it only replays once
-        if play_on == 'y':
-            launch_game()
-        else:
-            sys.exit()
-    # '''
+fabulous_blackjack = PlayTheGame()
 
-launch_game()
-play_again()

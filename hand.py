@@ -3,14 +3,15 @@ from player import Player
 class Hand:
 
     def __init__(self):
-        print("Time to play some blackjack.")
         self.player = Player()
         self.dealer = Player()
-        print("Player is: ", self.player)
-        print("Dealer is: ", self.dealer)
+        # print("Player is: ", self.player)
+        # print("Dealer is: ", self.dealer)
+        print(">" * 40)
         print("Player's hand: ", self.player.hand)
-        # deal two cards to each
-        # total player cards and inquire about a hit
+
+    def initial_deal(self):
+        pass  # deal two cards to each
 
     def players_hand(self):
         while self.player.hand < 21:
