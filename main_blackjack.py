@@ -9,7 +9,8 @@ class PlayTheGame():
         self.launch_game()
         self.play_again()
 
-    def launch_game(self):
+    @staticmethod
+    def launch_game():
         new_round = Hand()
         new_round.players_hand()
         new_round.dealers_hand()

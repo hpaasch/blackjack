@@ -12,22 +12,40 @@ from itertools import product
 from random import sample, choice
 
 
-# class Deck:
+class Deck:
 
-def deal_one(): # __init__():
-    suit = "CSHD"
-    rank = "A23456789TJQK"
-    fake_card_values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    dealt_card = choice(fake_card_values)
-    full_deck = tuple(''.join(card) for card in product(rank, suit))
-    full_deck_valued = {card: min(1 + rank.index(card[0]), 10) for card in full_deck}
-    shuffled_deck = sample(full_deck, len(full_deck))
-    print(full_deck)
-    print(full_deck_valued)
-    print(shuffled_deck)
-    print(dealt_card)
-    return dealt_card
-# dealt_card could return the value in the tuple.
+    def __init__(self):
+        self.suit = "CSHD"
+        self.rank = "A23456789TJQK"
+        self.full_deck = tuple(''.join(card) for card in product(self.rank, self.suit))
+        self.full_deck_valued = {card: min(1 + self.rank.index(card[0]), 10) for card in self.full_deck}
+        self.shuffled_deck = sample(self.full_deck, len(self.full_deck))
+        self.hand = []
+        self.hand_valued = []
+        # print(self.full_deck)
+        # print(self.full_deck_valued)
+        # print(shuffled_deck)
+
+    def initial_deal(self):
+        self.hand = [self.shuffled_deck.pop() for _ in range(2)]
+        return self.hand
+
+    def value_the_cards(self):
+        self.hand_valued = sum(self.full_deck_valued[card] for card in self.hand)
+        return self.hand_valued
+
+    def deal_one_card(self):
+        new_card = self.shuffled_deck.pop()
+        self.hand.append(new_card)
+        return self.hand
+
+
+# hep_test = Deck()
+# print(hep_test.initial_deal())
+# print(hep_test.value_the_cards())
+# print(hep_test.deal_one_card())
+# hep_test.value_the_cards()
+# print(hep_test.value_the_cards())
 
 
 
