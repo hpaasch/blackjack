@@ -1,7 +1,12 @@
 The game is started by running main.blackjack.py
 
-Creation of a deck, dealing of cards and valuing of cards is in deck.py
+Creation of a deck, dealing of cards and valuing of cards is in deck.py.
+I used the product function from the itertools module. This is really simplified
+the code for looping thru the rank and suit to create all possible combos.
 
 The playing out of each hand is in hand.py.
 
-The player.py exists at the moment, tho i'm not totally sure i really need it.
+The player.py doesn't do a lot in the Normal Mode of the homework. It assumes each
+player shows up with $100. I'd like to attempt the Hard Mode portions, and so
+I'm intentionally preserving a bare-bones Player class on the theory that it
+builds out during the Hard Mode.
