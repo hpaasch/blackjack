@@ -1,0 +1,7 @@
+The game is started by running main.blackjack.py
+
+Creation of a deck, dealing of cards and valuing of cards is in deck.py
+
+The playing out of each hand is in hand.py.
+
+The player.py exists at the moment, tho i'm not totally sure i really need it.

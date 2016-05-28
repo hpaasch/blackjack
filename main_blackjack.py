@@ -9,8 +9,8 @@ class PlayTheGame():
         self.launch_game()
         self.play_again()
 
-    @staticmethod
-    def launch_game():
+    # @staticmethod >>> pycharm suggests this. i don't understand the benefit, so didn't implement.
+    def launch_game(self):
         new_round = Hand()
         new_round.players_hand()
         new_round.dealers_hand()
