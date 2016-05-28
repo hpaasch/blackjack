@@ -2,12 +2,6 @@
 # shuffles
 # delivers cards
 
-# collaborates with hand, dealer, player
-
-# create deck as tuples? then can add values more easily. not as strings.
-# can put "used" tuple in a list and check to see if something used. not so efficient.
-# can pop tuple from the list as it is dealt. more efficient, but need to read up on pop
-
 from itertools import product
 from random import sample, choice
 
@@ -24,7 +18,7 @@ class Deck:
         self.hand_valued = []
         # print(self.full_deck)
         # print(self.full_deck_valued)
-        # print(shuffled_deck)
+        # print(self.shuffled_deck)
 
     def initial_deal(self):
         self.hand = [self.shuffled_deck.pop() for _ in range(2)]
@@ -32,7 +26,8 @@ class Deck:
 
     def value_the_cards(self):
         self.hand_valued = sum(self.full_deck_valued[card] for card in self.hand)
-        return self.hand_valued
+        # hephep = 8
+        return self.hand_valued  # hephep
 
     def deal_one_card(self):
         new_card = self.shuffled_deck.pop()
@@ -41,11 +36,17 @@ class Deck:
 
 
 # hep_test = Deck()
-# print(hep_test.initial_deal())
+# hep_test.initial_deal()
+# hep_test.deal_one_card()
+# hep_test.deal_one_card()
+# hep_test.deal_one_card()
+
 # print(hep_test.value_the_cards())
 # print(hep_test.deal_one_card())
 # hep_test.value_the_cards()
+# print(hep_test.hand)
 # print(hep_test.value_the_cards())
+# print(hep_test.hand_valued)
 
 
 

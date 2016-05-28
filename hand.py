@@ -1,4 +1,6 @@
 from player import Player
+from deck import Deck
+
 
 class Hand:
 
@@ -8,13 +10,14 @@ class Hand:
         # print("Player is: ", self.player)
         # print("Dealer is: ", self.dealer)
         print(">" * 40)
-        print("Player's hand: ", self.player.hand)
+        # print("Player's hand: ", self.player.hand)
 
     def initial_deal(self):
+        # self.player.hand = self.initial_deal()
         pass  # deal two cards to each
 
     def players_hand(self):
-        while self.player.hand < 21:
+        while self.player.hand_total < 21:
             hit = input("Hit or Stay? H/S ").lower()
             if hit == 'h':
                 Player.get_card(self.player)
@@ -36,3 +39,6 @@ class Hand:
             print("Dealer's hand: ", self.dealer.hand)
         dealer_total = self.dealer.hand
         return dealer_total
+
+hep_test = Hand()
+# print(hep_test.players_hand())
