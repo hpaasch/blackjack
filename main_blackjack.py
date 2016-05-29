@@ -8,18 +8,14 @@ from deck import Deck
 import sys
 
 
-class PlayTheGame:
+class BlackJack:
 
     def __init__(self):
         print("Time to play some blackjack.")
         # self.launch_game()
         # self.play_again()
-        self.deck = Deck()
-        self.players_hand = Hand()
-        self.dealers_hand = Hand()
 
 
-    # should i turn these into self.new_round?
     def launch_game(self):
         self.deck.initial_deal()
         self.new_round.players_hand()
