@@ -14,20 +14,23 @@ class Player:
     def __init__(self):
         # self.player = Player()
         # self.dealer = Player()
-        self.deck = Deck()
+        # self.deck = Deck()  # is this creating another deck? probably
         self.wallet = 100
-        self.hand_total = 0
-        # self.cards_in_hand = Deck.hand
+        self.hand_total = 0  # self.deck.value_the_cards()
+        # self.deal_in = self.deck.initial_deal()
+        self.cards_in_hand = []
 
-    def hold_cards(self):
-        self.hand_total = self.deck.value_the_cards()
-        return self.hand_total
+    # def hold_cards(self):
+        # self.hand_total = self.deck.value_the_cards()
+        # return self.hand_total
 
+'''
+hep_test = Player()
+print("Player's bank holds: ", hep_test.wallet)
+print("Initial deal: ", hep_test.deal_in)
+print("Hand's current total: ", hep_test.deck.value_the_cards())
+'''
 
-# hep_test = Player()
-# hep_test.get_card()
-# print("Buckaroos: ", hep_test.wallet)
-# print("Hand's current total: ", hep_test.deck.value_the_cards())
 
 
 

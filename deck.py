@@ -40,13 +40,15 @@ class Deck:
 # hep_test.deal_one_card()
 # hep_test.deal_one_card()
 # hep_test.deal_one_card()
+# print(hep_test.hand)
+# print(hep_test.value_the_cards())
 
+
+# print(hep_test.hand_valued)
 # print(hep_test.value_the_cards())
 # print(hep_test.deal_one_card())
 # hep_test.value_the_cards()
-# print(hep_test.hand)
-# print(hep_test.value_the_cards())
-# print(hep_test.hand_valued)
+#
 
 
 

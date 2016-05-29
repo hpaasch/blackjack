@@ -8,15 +8,17 @@ class PlayTheGame:
 
     def __init__(self):
         print("Time to play some blackjack.")
-        self.launch_game()
-        self.play_again()
+        # self.launch_game()
+        # self.play_again()
+        self.deck = Deck()
+        self.new_round = Hand()
 
     # @staticmethod >>> pycharm suggests this. i don't understand the benefit, so didn't implement.
+    # should i turn these into self.new_round?
     def launch_game(self):
-        new_round = Hand()
-        # deck = Deck()  # added this
-        new_round.players_hand()
-        new_round.dealers_hand()
+        self.deck.initial_deal()
+        self.new_round.players_hand()
+        self.new_round.dealers_hand()
 
     def play_again(self):
         while True:
