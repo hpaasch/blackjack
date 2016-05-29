@@ -13,7 +13,6 @@ class PlayTheGame:
         self.deck = Deck()
         self.new_round = Hand()
 
-    # @staticmethod >>> pycharm suggests this. i don't understand the benefit, so didn't implement.
     # should i turn these into self.new_round?
     def launch_game(self):
         self.deck.initial_deal()

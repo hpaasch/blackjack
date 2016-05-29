@@ -5,36 +5,41 @@ from deck import Deck
 class Hand:
 
     def __init__(self):
-        self.player_one = Player()
-        self.dealer = Player()
+        self.cards_in_hand = []
         self.deck = Deck()
-        self.player_one.hand_total = 0  # self.deck.value_the_cards()  # self.player.hold_cards()
-        # self.player_one.deal_in = self.deck.initial_deal()
-        # self.dealer.deal_in = self.deck.initial_deal()
-        self.dealer.hand_total = 0  # self.dealer.hand_total  # self.deck.value_the_cards()
 
-        print(">" * 40)
-        # print("Player's hand opens with: ", self.player_one.deal_in)
-        print("Player's hand opening value: ", self.player_one.hand_total)
-        # print("Dealer reveals both for testing: ", self.dealer.deal_in)
-        # print("Dealer reveals one up: ", self.dealer.deal_in[0])
+        # self.player_one = Player()
+        # self.dealer = Player()
+        # self.deck = Deck()
+        # self.player_one.hand_total = 0  # self.deck.value_the_cards()  # self.player.hold_cards()
+        # self.player_one.cards = self.player_one.cards_in_hand
+        # self.dealer.hand_total = 0  # self.dealer.hand_total  # self.deck.value_the_cards()
 
     def initial_deal(self):
-        self.player_one.cards_in_hand.append(self.deck.initial_deal())
-        print("Player's initial deal is these cards: ", self.player_one.cards_in_hand)
-        self.player_one.hand_total = self.deck.value_the_cards()
-        print("Player's cards tally: ", self.player_one.hand_total)
-        # self.dealer.cards_in_hand = self.deck.initial_deal()
-        # print("Dealer's initial deal is these cards: ", self.player_one.cards_in_hand)
-        return self.player_one.hand_total
+        new_cards = (Deck.deal_one_card(self.deck) for _ in range(2))
+        self.cards_in_hand.append(new_cards)
+        print(self.cards_in_hand)
+        return new_cards
+
+    def __str__(self):
+        return ' '.join(self.cards_in_hand)
+
+    def draw_a_card(self):
+        new_card = Deck.deal_one_card()
+
 
     def players_hand(self):
         while self.player_one.hand_total < 21:
             hit = input("Hit or Stay? H/S ").lower()
             if hit == 'h':
-                Deck.deal_one_card(self.deck)
-                print("Player hand now holds: ", self.player_one.cards_in_hand)
-                self.player_one.hand_total = self.deck.value_the_cards()
+                new_card = Deck.deal_one_card(self.deck)
+                self.player_one.cards_in_hand.append(new_card)
+                # Deck.deal_one_card(self.deck)
+                print("Player's hand now holds: ", self.player_one.cards_in_hand)
+                # self.player_one.hand_total = Deck.value_the_cards(self.deck)
+                new_value = Deck.value_the_cards(self.deck)
+                self.player_one.hand_total = new_value
+                # self.player_one.hand_total = self.deck.value_the_cards()
                 print("Player's cards tally: ", self.player_one.hand_total)
                 if self.player_one.hand_total > 21:
                     print("Player's hand is a bust.")
@@ -47,6 +52,9 @@ class Hand:
     def dealers_hand(self):
         while self.dealer.hand_total < 17:
             Deck.deal_one_card(self.deck)
+            print("Dealer hand now holds: ", self.dealer.cards_in_hand)
+            self.player_one.hand_total = self.deck.value_the_cards()
+            print("Dealer's cards tally: ", self.dealer.hand_total)
         if self.dealer.hand_total > 21:
             print("Dealer's hand is bust at {}.".format(self.dealer.hand_total))
         else:
