@@ -13,10 +13,13 @@ class PlayTheHands:
         self.deck = Deck()
         self.players_hand = Hand()
         self.dealers_hand = Hand()
+        self.bet = -10
 
     def opening(self):
         Hand.initial_deal(self.players_hand)
         Hand.initial_deal(self.dealers_hand)
+        print("-" * 40)
+        print("\nThe hand opens: \n")
         print("Dealer showing one: {}".format(self.dealers_hand.cards_in_hand[0]))
         print("Player showing: ", self.players_hand)
         print("Player's cards tally: ", self.players_hand.value_the_cards())
@@ -34,8 +37,7 @@ class PlayTheHands:
             else:
                 print("Player's cards tally: ", self.players_hand.value_the_cards())
                 break
-        player_total = self.players_hand.value_the_cards()
-        return player_total
+        return self.players_hand.value_the_cards()
 
     def dealers_logic(self):
         print("-" * 40)
@@ -43,9 +45,6 @@ class PlayTheHands:
         if self.players_hand.value_the_cards() > 21:
             # bank goes down by $10
             print("Dealer wins.")
-            # restart the game
-            sys.exit()
-        # DONE stop here if dealer wins
         while self.dealers_hand.value_the_cards() < 17:
             Hand.draw_a_card(self.dealers_hand)
             print("Dealer takes a card: ", self.dealers_hand)
@@ -58,5 +57,6 @@ class PlayTheHands:
             print("Dealer's tally: {}. Player wins.".format(self.dealers_hand.value_the_cards()))
         else:
             print("Dealer wins with {}.".format(self.dealers_hand.value_the_cards()))
-        dealer_total = self.dealers_hand.value_the_cards()
-        return dealer_total
+        return self.dealers_hand.value_the_cards()
+
+

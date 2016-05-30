@@ -40,7 +40,6 @@ class Hand:
                     hand_valued += 10
         # if hand_valued <= 11 and any(card[0] == 'A' for card in self.cards_in_hand):
             # hand_valued += 10
-        # need Ace logic here
         # hand_valued = sum(full_deck_valued[card] for card in self.cards_in_hand)
         # print(hand_valued)
         return hand_valued

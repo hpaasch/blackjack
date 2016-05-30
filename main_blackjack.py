@@ -12,28 +12,27 @@ import sys
 class BlackJack:
 
     def __init__(self):
+        self.players_bank = 100
         print("-" * 40)
-        print("Time to play some blackjack. \nHere's how the game opens: \n")
+        print("Player starts with ${}. Game ends when bank empty. $10 per hand.".format(self.players_bank))
         self.game = PlayTheHands()
         self.launch_game()
-        self.play_again()
+        self.play_out_the_bank()
 
     def launch_game(self):
         self.game.opening()
         self.game.players_logic()
         self.game.dealers_logic()
 
-    def winner(self):
-        pass
-
-    def play_again(self):
+    def play_out_the_bank(self):
         print("=" * 40)
-        while True:
-            play_on = input("Want to play another hand? Y/n ").lower()
-            if play_on == 'y':
-                return
-                # self.launch_game()
-            else:
-                sys.exit()
+        self.players_bank += self.game.bet
+        print("Player's bank at ${}.".format(self.players_bank))
+        while self.players_bank > 0:
+            self.game.__init__()
+            self.game.opening()
+            self.game.players_logic()
+            self.game.dealers_logic()
+
 
 fabulous_blackjack = BlackJack()
