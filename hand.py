@@ -38,8 +38,6 @@ class Hand:
             for card in self.cards_in_hand:
                 if card[0] == 'A':
                     hand_valued += 10
-        # if hand_valued <= 11 and any(card[0] == 'A' for card in self.cards_in_hand):
-            # hand_valued += 10
-        # hand_valued = sum(full_deck_valued[card] for card in self.cards_in_hand)
+                    break
         # print(hand_valued)
         return hand_valued

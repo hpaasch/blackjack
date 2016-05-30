@@ -60,4 +60,11 @@ class PlayTheHands:
             print("Dealer wins with {}.".format(self.dealers_hand.value_the_cards()))
         return self.dealers_hand.value_the_cards()
 
+    def ace_logic_test(self):
+        self.players_hand.cards_in_hand = ['AS', 'AD']
+        print(self.players_hand.value_the_cards())
+
+# test of ace logic
+heptest = PlayTheHands()
+heptest.ace_logic_test()
 

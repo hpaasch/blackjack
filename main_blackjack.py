@@ -25,9 +25,6 @@ class BlackJack:
         self.game.dealers_logic()
 
     def play_out_the_bank(self):
-        # print("=" * 40)
-        # self.players_bank += self.game.bet
-        # print("Player's bank at ${}.".format(self.players_bank))
         while self.players_bank > 0:
             print("=" * 40)
             self.players_bank += self.game.bet
