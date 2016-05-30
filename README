@@ -13,5 +13,10 @@ player.py creates one hand for the player and one hand for the dealer, and then
 plays out each. This was the third phase of my rebuilding, and it takes imports
 from both Deck and Hand.
 
-main_blackjack.py launches the game, announces a winner and invites the player
-to go another round. This was the final part of the rebuilding.
+main_blackjack.py launches the game and plays out the player's $100 bank.
+This was the final part of the rebuilding.
+
+NOTE: I tested Ace logic to be sure it would pass should two Aces be dealt. that
+test is visible on one of the player.py commits, with a message to that effect.
+
+ALSO NOTE: My Normal Mode does include the optional player bank.
