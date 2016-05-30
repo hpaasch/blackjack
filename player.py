@@ -45,6 +45,7 @@ class PlayTheHands:
         if self.players_hand.value_the_cards() > 21:
             # bank goes down by $10
             print("Dealer wins.")
+            return self.dealers_hand.value_the_cards()
         while self.dealers_hand.value_the_cards() < 17:
             Hand.draw_a_card(self.dealers_hand)
             print("Dealer takes a card: ", self.dealers_hand)
