@@ -16,7 +16,11 @@ from both Deck and Hand.
 main_blackjack.py launches the game and plays out the player's $100 bank.
 This was the final part of the rebuilding.
 
+(There are a number of files in the project that turn out to be extraneous.
+Please ignore them.)
+
 NOTE: I tested Ace logic to be sure it would pass should two Aces be dealt. that
 test is visible on one of the player.py commits, with a message to that effect.
 
-ALSO NOTE: My Normal Mode does include the optional player bank.
+ALSO NOTE: My Normal Mode does include the optional player bank, but nothing
+from Hard or Nightmare modes.
