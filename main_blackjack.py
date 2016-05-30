@@ -6,7 +6,6 @@
 # from hand import Hand
 # from deck import Deck
 from player import PlayTheHands
-import sys
 
 
 class BlackJack:
@@ -14,7 +13,8 @@ class BlackJack:
     def __init__(self):
         self.players_bank = 100
         print("-" * 40)
-        print("Player starts with ${}. Game ends when bank empty. $10 per hand.".format(self.players_bank))
+        print("Player starts with ${}, bets $10 per hand. Game ends when bank empty.".format(self.players_bank))
+        print("Dealer always stands on 17 or more.")
         self.game = PlayTheHands()
         self.launch_game()
         self.play_out_the_bank()

@@ -5,7 +5,6 @@
 
 from hand import Hand
 from deck import Deck
-import sys
 
 
 class PlayTheHands:
@@ -13,7 +12,7 @@ class PlayTheHands:
         self.deck = Deck()
         self.players_hand = Hand()
         self.dealers_hand = Hand()
-        self.bet = -10
+        self.bet = 10
 
     def opening(self):
         Hand.initial_deal(self.players_hand)
@@ -43,28 +42,24 @@ class PlayTheHands:
         print("-" * 40)
         print("Dealer showing both now: ", self.dealers_hand)
         if self.players_hand.value_the_cards() > 21:
-            # bank goes down by $10
+            self.bet = -10
             print("Dealer wins.")
-            return self.dealers_hand.value_the_cards()
-        while self.dealers_hand.value_the_cards() < 17:
-            Hand.draw_a_card(self.dealers_hand)
-            print("Dealer takes a card: ", self.dealers_hand)
-        if self.dealers_hand.value_the_cards() > 21:
-            print("Dealer's hand busted at {}. Player wins.".format(self.dealers_hand.value_the_cards()))
-        elif self.dealers_hand.value_the_cards() == self.players_hand.value_the_cards():
-            print("Dealer: {}. Player: {}. Dealer wins ties.".format(self.dealers_hand.value_the_cards(),
-                                                                     self.players_hand.value_the_cards()))
-        elif self.dealers_hand.value_the_cards() < self.players_hand.value_the_cards() < 22:
-            print("Dealer's tally: {}. Player wins.".format(self.dealers_hand.value_the_cards()))
-        else:
+        elif self.dealers_hand.value_the_cards() > self.players_hand.value_the_cards():
+            self.bet = -10
             print("Dealer wins with {}.".format(self.dealers_hand.value_the_cards()))
+        else:
+            while self.dealers_hand.value_the_cards() < 17:
+                Hand.draw_a_card(self.dealers_hand)
+                print("Dealer takes a card: ", self.dealers_hand)
+            if self.dealers_hand.value_the_cards() > 21:
+                print("Dealer's hand busted at {}. Player wins.".format(self.dealers_hand.value_the_cards()))
+            elif self.dealers_hand.value_the_cards() == self.players_hand.value_the_cards():
+                self.bet = -10
+                print("Dealer: {}. Player: {}. Dealer wins ties.".format(self.dealers_hand.value_the_cards(),
+                                                                         self.players_hand.value_the_cards()))
+            elif self.dealers_hand.value_the_cards() < self.players_hand.value_the_cards() < 22:
+                print("Dealer's tally: {}. Player wins.".format(self.dealers_hand.value_the_cards()))
+            else:
+                self.bet = -10
+                print("Dealer wins with {}.".format(self.dealers_hand.value_the_cards()))
         return self.dealers_hand.value_the_cards()
-
-    def ace_logic_test(self):
-        self.players_hand.cards_in_hand = ['AS', 'AD']
-        print(self.players_hand.value_the_cards())
-
-# test of ace logic
-heptest = PlayTheHands()
-heptest.ace_logic_test()
-
