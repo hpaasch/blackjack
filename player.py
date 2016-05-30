@@ -16,17 +16,18 @@ class PlayTheHands:
     def opening(self):
         Hand.initial_deal(self.players_hand)
         Hand.initial_deal(self.dealers_hand)
-        print("Dealer showing: ", self.dealers_hand)  # need to hide one
+        print("Dealer showing one: {}".format(self.dealers_hand.cards_in_hand[0]))
         print("Player showing: ", self.players_hand)
         print("Player's cards tally: ", self.players_hand.value_the_cards())
 
     def players_logic(self):
+        print("-" * 40)
         while self.players_hand.value_the_cards() < 21:
             hit = input("Hit or Stay? H/S ").lower()
             if hit == 'h':
                 Hand.draw_a_card(self.players_hand)
                 print("Player holding: ", self.players_hand)
-                print("Player's cards tally: ", self.players_hand.value_the_cards())  # for testing
+                print("Player's cards tally: ", self.players_hand.value_the_cards())
                 if self.players_hand.value_the_cards() > 21:
                     print("Player's hand is a bust.")
             else:
@@ -36,7 +37,9 @@ class PlayTheHands:
         return player_total
 
     def dealers_logic(self):
+        print("-" * 40)
         print("Dealer showing both now: ", self.dealers_hand)
+        # stop here if dealer wins
         while self.dealers_hand.value_the_cards() < 17:
             Hand.draw_a_card(self.dealers_hand)
             print("Dealer takes a card: ", self.dealers_hand)
@@ -46,13 +49,3 @@ class PlayTheHands:
             print("Dealer's cards tally: ", self.dealers_hand.value_the_cards())
         dealer_total = self.dealers_hand.value_the_cards()
         return dealer_total
-
-
-heptest = PlayTheHands()
-heptest.opening()
-heptest.players_logic()
-heptest.dealers_logic()
-
-
-
-

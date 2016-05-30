@@ -1,5 +1,5 @@
-# defines possible cards to play
-# shuffles
+# creates a base deck
+# delivers a shuffled deck
 # delivers cards
 
 from itertools import product

@@ -1,4 +1,3 @@
-# creates a clean instance of a shuffled deck
 # takes initial deal
 # values cards
 # takes additional cards
@@ -39,15 +38,3 @@ class Hand:
         # hand_valued = sum(full_deck_valued[card] for card in self.cards_in_hand)
         # print(hand_valued)
         return hand_valued
-
-
-'''
-heptest = Hand()
-heptest.initial_deal()
-heptest.draw_a_card()
-heptest.__str__()
-heptest.value_the_cards()
-'''
-
-
-
